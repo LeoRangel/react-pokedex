@@ -1,38 +1,3 @@
-# React Pokédex
-
-:red_circle: Pokédex developed in React + Typescript
-
-## Install Create React App:
-
-```bash
-npx create-react-app my-app --template typescript
-```
-
-## Install and config ESlint, Prettier and Editor Config:
-
-Install:
-
-```bash
-yarn add eslint --dev
-```
-
-Config:
-
-```bash
-yarn create @eslint/config
-```
-
-Install plugins:
-
-```
-yarn add --dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
-
-yarn add -D eslint-config-prettier eslint-plugin-prettier
-```
-
-Create/edit file '.eslintrc.json'
-
-```json
 {
   "env": {
     "browser": true,
@@ -105,36 +70,3 @@ Create/edit file '.eslintrc.json'
     }
   }
 }
-```
-
-Create file '.prettierrc.js'
-
-```
-module.exports = {
-  semi: true,
-  trailingComma: 'all',
-  singleQuote: true,
-  printWidth: 120,
-  tabWidth: 2
-}
-```
-
-Create '.editorconfig'
-
-```
-root = true
-
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-```
-
-Run eslint:
-
-```
-yarn eslint src/**/*.tsx --fix
-```
