@@ -138,3 +138,9 @@ Run eslint:
 ```
 yarn eslint src/**/*.tsx --fix
 ```
+
+## Install Styled Components:
+
+```
+yarn add styled-components
+```
