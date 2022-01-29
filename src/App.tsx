@@ -1,11 +1,11 @@
-import GlobalStyle from './assets/styles/global';
+import { BrowserRouter } from 'react-router-dom';
+import PublicRouter from './routes/public';
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <h1>Hello World!</h1>
-    </>
+    <BrowserRouter>
+      <PublicRouter />
+    </BrowserRouter>
   );
 }
 
