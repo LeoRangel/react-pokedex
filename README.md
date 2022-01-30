@@ -144,3 +144,9 @@ yarn eslint src/**/*.tsx --fix
 ```
 yarn add styled-components
 ```
+
+## Install React Router Dom:
+
+```
+yarn add react-router-dom
+```

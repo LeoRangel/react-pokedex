@@ -1,11 +1,14 @@
 import { BrowserRouter } from 'react-router-dom';
+import { AppContextProvider } from './contexts/AppContext';
 import PublicRouter from './routes/public';
 
 function App() {
   return (
-    <BrowserRouter>
-      <PublicRouter />
-    </BrowserRouter>
+    <AppContextProvider>
+      <BrowserRouter>
+        <PublicRouter />
+      </BrowserRouter>
+    </AppContextProvider>
   );
 }
 
