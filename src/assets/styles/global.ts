@@ -14,14 +14,16 @@ export default createGlobalStyle`
     --gray-5: #F0F0F0;
 
     // Spacing
-    --spacing-1: .75rem;
-    --spacing-2: 1rem;
-    --spacing-3: 1.5rem;
-    --spacing-4: 3rem;
-    --spacing-5: 3.75rem;
+    --spacing-1: .25rem;
+    --spacing-2: .5rem;
+    --spacing-3: .75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.5rem;
+    --spacing-6: 3rem;
+    --spacing-7: 3.75rem;
 
     // Padding
-    --pd-container: var(--spacing-5) var(--spacing-3);
+    --pd-container: var(--spacing-7) var(--spacing-5);
 
     // Radius
     --border-radius-1: .45rem;
@@ -35,7 +37,7 @@ export default createGlobalStyle`
 
     @media (max-width: 768px) {
       /* Padding */
-      --pd-container: var(--spacing-4) var(--spacing-3);
+      --pd-container: var(--spacing-6) var(--spacing-5);
     }
   }
 

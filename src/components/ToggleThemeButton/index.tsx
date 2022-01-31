@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import { IconMoon, IconSun } from '../../assets/icons';
 import { Theme } from '../../types';
-import * as S from './style';
+import * as S from './styles';
 
 type ToggleThemeButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   theme: Theme;
