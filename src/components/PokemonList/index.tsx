@@ -11,7 +11,7 @@ export function PokemonList({ pokemonList }: any) {
             id={pokemon.id}
             name={pokemon.name}
             types={pokemon.types}
-            sprites={pokemon.sprites}
+            image={pokemon.sprites.front_default}
           />
         ))}
     </S.PokemonList>

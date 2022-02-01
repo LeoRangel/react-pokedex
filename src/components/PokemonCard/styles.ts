@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-type pokemonColorsType = {
-  [key: string]: string;
-};
-
-const pokemonColors: pokemonColorsType = {
+const pokemonColors: { [key: string]: string } = {
   normal: '#A8A77A',
   fighting: '#C22E28',
   flying: '#A98FF3',
@@ -46,15 +42,17 @@ export const PokemonCard = styled.div<{ mainType: string }>`
   color: white;
 
   small {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 600;
   }
 
   h2 {
     max-width: 100%;
     text-transform: capitalize;
     white-space: nowrap;
-    overflow: hidden;
+    // overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 0.015rem 0.35rem rgba(0, 0, 0, 0.3);
   }
 
   img {
