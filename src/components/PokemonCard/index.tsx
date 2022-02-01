@@ -6,16 +6,17 @@ type PokemonCardProps = {
   types: any;
   sprites: any;
 };
+
 export function PokemonCard({ id, name, types, sprites }: PokemonCardProps) {
   return (
-    <S.PokemonCard>
+    <S.PokemonCard mainType={types[0].type.name}>
       <img src={sprites.front_default} alt={name} />
       <S.PokemonCardBody>
         <small>#{id}</small>
         <h2>{name}</h2>
         <div>
           {types.map((item: any) => (
-            <S.PokemonCardType key={item.slot}>{item.type.name}</S.PokemonCardType>
+            <S.PokemonBadgeType key={item.slot}>{item.type.name}</S.PokemonBadgeType>
           ))}
         </div>
       </S.PokemonCardBody>

@@ -1,11 +1,41 @@
 import styled from 'styled-components';
 
-export const PokemonCard = styled.div`
+type pokemonColorsType = {
+  [key: string]: string;
+};
+
+const pokemonColors: pokemonColorsType = {
+  normal: '#A8A77A',
+  fighting: '#C22E28',
+  flying: '#A98FF3',
+  poison: '#A33EA1',
+  ground: '#E2BF65',
+  rock: '#B6A136',
+  bug: '#A6B91A',
+  ghost: '#735797',
+  steel: '#B7B7CE',
+  fire: '#EE8130',
+  water: '#6390F0',
+  grass: '#7AC74C',
+  electric: '#F7D02C',
+  psychic: '#F95587',
+  ice: '#96D9D6',
+  dragon: '#6F35FC',
+  dark: '#705746',
+  fairy: '#D685AD',
+};
+
+export const PokemonCard = styled.div<{ mainType: string }>`
   width: 100%;
   max-width: 100%;
   height: 180px;
   padding: var(--spacing-4);
-  background-color: var(--gray-3);
+  ${({ mainType }) => {
+    if (mainType && pokemonColors[mainType]) {
+      return `background-color: ${pokemonColors[mainType]}`;
+    }
+    return 'background-color: var(--gray-3)';
+  }};
   border-radius: var(--border-radius-1);
   overflow: hidden;
   display: flex;
@@ -45,7 +75,7 @@ export const PokemonCardBody = styled.div`
   display: flex;
   flex-direction: column;
 
-  > div {
+  div {
     margin-top: var(--spacing-3);
     display: flex;
     flex-direction: column;
@@ -53,7 +83,7 @@ export const PokemonCardBody = styled.div`
   }
 `;
 
-export const PokemonCardType = styled.small`
+export const PokemonBadgeType = styled.small`
   width: fit-content;
   padding: var(--spacing-1) var(--spacing-2);
   color: white !important;
