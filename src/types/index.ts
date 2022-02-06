@@ -14,3 +14,10 @@ export type PokemonCardProps = {
   types: PokemonTypeProps[];
   image: string;
 };
+
+export type PokemonProps = {
+  id: number;
+  name: string;
+  types: PokemonTypeProps[];
+  image: string;
+};
