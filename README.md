@@ -1,152 +1,44 @@
 # React Pokédex
 
-:red_circle: Pokédex developed in React + Typescript
+Pokédex developed in React + Typescript
 
-## Install Create React App:
+## :gear: Features
 
-```bash
-npx create-react-app my-app --template typescript
-```
+The app currently contains the following features
 
-## Install and config ESlint, Prettier and Editor Config:
+- View basic details of each Pokémon
+- Search Pokémon by its Name
+- Dark mode toggle
+- Responsive design
 
-Install:
 
-```bash
-yarn add eslint --dev
-```
+## :hammer_and_wrench: Development
 
-Config:
+The application was developed using the following tools and technologies:
 
-```bash
-yarn create @eslint/config
-```
+- React
+- TypeScript
+- HTML
+- CSS
 
-Install plugins:
+## :arrow_forward: Install and run the project
 
-```
-yarn add --dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
+To run the project in the development environment, perform the steps below:
 
-yarn add -D eslint-config-prettier eslint-plugin-prettier
-```
-
-Create/edit file '.eslintrc.json'
-
-```json
-{
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    // "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-props-no-spreading": "off",
-    "no-unused-expressions": "off",
-    "react/prop-types": "off",
-    "import/no-extraneous-dependencies": "off",
-    "import/prefer-default-export": "off",
-    "no-param-reassign": 0,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".tsx",
-          ".ts"
-        ]
-      }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      }
-    }
-  }
-}
-```
-
-Create file '.prettierrc.js'
+### 1. Clone the repository
 
 ```
-module.exports = {
-  semi: true,
-  trailingComma: 'all',
-  singleQuote: true,
-  printWidth: 120,
-  tabWidth: 2
-}
+git clone https://github.com/LeoRangel/react-pokedex.git
 ```
 
-Create '.editorconfig'
+### 2. Install dependencies
 
 ```
-root = true
-
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+npm install or yarn install
 ```
 
-Run eslint:
+### 3. Run project
 
 ```
-yarn eslint src/**/*.tsx --fix
-```
-
-## Install Styled Components:
-
-```
-yarn add styled-components
-```
-
-## Install React Router Dom:
-
-```
-yarn add react-router-dom
+npm start or yarn start
 ```

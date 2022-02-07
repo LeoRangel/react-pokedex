@@ -56,12 +56,15 @@ export function Home() {
 
   useEffect(() => {
     getPokemonByPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
     onSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSearch = (e: any) => {
     const { value } = e.target;
     setSearch(value);

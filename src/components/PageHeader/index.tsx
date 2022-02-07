@@ -6,6 +6,7 @@ type PageHeaderProps = {
   theme: Theme;
   toggleTheme: () => void;
   search: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSearch: (e: any) => void;
 };
 
@@ -13,11 +14,11 @@ export function PageHeader({ theme, toggleTheme, search, handleSearch }: PageHea
   return (
     <S.PageHeader>
       <S.Navbar>
-        <div>
+        <Container>
           <h1>Pokédex</h1>
           {/* <p>All Pokémon listed by National Pokédex number</p> */}
-        </div>
-        <ToggleThemeButton theme={theme} onClick={toggleTheme} />
+          <ToggleThemeButton theme={theme} onClick={toggleTheme} />
+        </Container>
       </S.Navbar>
       <Container>
         <S.PokemonSearch>

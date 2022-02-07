@@ -26,6 +26,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function toggleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
