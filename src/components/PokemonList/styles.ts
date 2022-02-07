@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PokemonList = styled.div`
-  padding: var(--spacing-6) 0;
+  margin-bottom: var(--spacing-6);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--spacing-4);

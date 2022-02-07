@@ -23,7 +23,7 @@ export default createGlobalStyle`
     --spacing-7: 3.75rem;
 
     // Padding
-    --pd-container: var(--spacing-7) var(--spacing-5);
+    --pd-container: 0 var(--spacing-5);
 
     // Radius
     --border-radius-1: .45rem;
@@ -34,11 +34,6 @@ export default createGlobalStyle`
 
     // Transition
     --bg-transition: background .5s;
-
-    @media (max-width: 768px) {
-      /* Padding */
-      --pd-container: var(--spacing-6) var(--spacing-5);
-    }
   }
 
   [data-theme="dark"] {
