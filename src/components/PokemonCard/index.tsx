@@ -8,12 +8,14 @@ export function PokemonCard({ id, name, types, image }: PokemonCardProps) {
   }
 
   return (
-    <S.PokemonCard mainType={types[0].type.name}>
+    <S.PokemonCard className="animated fadeInLeft" mainType={types[0].type.name}>
       <img src={cutPokeball} alt="" />
       <img src={image} alt={name} />
       <S.PokemonCardBody>
-        <small>#{addZerosToId(id)}</small>
-        <h2>{name}</h2>
+        <small>
+          <code>#{addZerosToId(id)}</code>
+        </small>
+        <h2 title={name}>{name}</h2>
         <div>
           {types.map((item: PokemonTypeProps) => (
             <S.PokemonBadgeType key={item.slot}>{item.type.name}</S.PokemonBadgeType>

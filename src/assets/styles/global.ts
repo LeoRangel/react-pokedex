@@ -65,4 +65,24 @@ export default createGlobalStyle`
     overflow-x: hidden;
     transition: var(--bg-transition);
   }
+
+  .animated {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+
+  .fadeInLeft {
+    animation-name: fadeInLeft;
+  }
 `;

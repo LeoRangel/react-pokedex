@@ -50,7 +50,7 @@ export const PokemonCard = styled.div<{ mainType: string }>`
     max-width: 100%;
     text-transform: capitalize;
     white-space: nowrap;
-    // overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     text-shadow: 0 0.015rem 0.35rem rgba(0, 0, 0, 0.3);
   }
