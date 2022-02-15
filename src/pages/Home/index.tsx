@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Pagination, PokemonList } from '../../components';
+import { Container, Pagination, PokemonInfos, PokemonList, PokemonModal } from '../../components';
 import { PageHeader } from '../../components/PageHeader';
 import useApp from '../../hooks/useApp';
 import { pokeapi } from '../../services';
@@ -11,20 +11,25 @@ export function Home() {
   const [pokemonList, setPokemonList] = useState<PokemonProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalData, setModalData] = useState<PokemonProps>();
 
-  const apiTotalPokemon = 1118;
+  // const apiTotalPokemon = 1118;
+  const apiTotalPokemon = 898;
   const pokemonByPage = 20;
   const totalPages = Math.ceil(apiTotalPokemon / pokemonByPage);
+  const restTotalByPage = apiTotalPokemon % pokemonByPage;
+  const apiLimit = restTotalByPage !== 0 && currentPage === totalPages ? restTotalByPage : pokemonByPage;
 
   async function getPokemonByPage() {
     // Get pokemon list
-    const { data } = await pokeapi.get(`/pokemon?offset=${(currentPage - 1) * pokemonByPage}`);
+    const { data } = await pokeapi.get(`/pokemon?limit=${apiLimit}&offset=${(currentPage - 1) * pokemonByPage}`);
     // Get individual pokemon infos
     const resp = await Promise.all(data.results.map((item: { name: string; url: string }) => pokeapi.get(item.url)));
     // Saving only necessary infos
     const format = resp.map((req) => {
-      const { id, name, types, sprites } = req.data;
-      return { id, name, types, image: sprites.front_default };
+      const { id, name, types, stats } = req.data;
+      return { id, name, types, stats };
     });
 
     setPokemonList(format);
@@ -39,8 +44,8 @@ export function Home() {
     const resp2 = await Promise.all(resp1.map((item: { name: string; url: string }) => pokeapi.get(item.url)));
     // Saving only necessary infos
     const format = resp2.map((req) => {
-      const { id, name, types, sprites } = req.data;
-      return { id, name, types, image: sprites.front_default };
+      const { id, name, types, stats } = req.data;
+      return { id, name, types, stats };
     });
 
     setPokemonList(format);
@@ -64,6 +69,10 @@ export function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
+  useEffect(() => {
+    setIsModalVisible(true);
+  }, [modalData]);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSearch = (e: any) => {
     const { value } = e.target;
@@ -75,7 +84,7 @@ export function Home() {
       <PageHeader theme={theme} toggleTheme={toggleTheme} search={search} handleSearch={handleSearch} />
       <S.MainContent>
         <Container>
-          <PokemonList pokemonList={pokemonList} />
+          <PokemonList pokemonList={pokemonList} setModalData={setModalData} />
           {search.length <= 0 && (
             <Pagination
               currentPage={currentPage}
@@ -85,6 +94,11 @@ export function Home() {
           )}
         </Container>
       </S.MainContent>
+      {isModalVisible === true && modalData !== undefined ? (
+        <PokemonModal setIsModalVisible={setIsModalVisible} setModalData={setModalData}>
+          <PokemonInfos modalData={modalData} />
+        </PokemonModal>
+      ) : null}
     </>
   );
 }

@@ -28,6 +28,7 @@ export default createGlobalStyle`
     // Radius
     --border-radius-1: .45rem;
     --border-radius-2: .65rem;
+    --border-radius-3: 1rem;
 
     // Shadow
     --shadow-1: 0 .5rem 1rem rgba(0,0,0,.15)!important;
@@ -84,5 +85,18 @@ export default createGlobalStyle`
 
   .fadeInLeft {
     animation-name: fadeInLeft;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    animation: spinner 5s linear infinite;
   }
 `;

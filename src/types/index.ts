@@ -8,16 +8,29 @@ export type PokemonTypeProps = {
   };
 };
 
+export type PokemonStatsProps = {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+};
+
 export type PokemonCardProps = {
   id: number;
   name: string;
   types: PokemonTypeProps[];
-  image: string;
+  // image: string;
+  setModalData: () => void;
 };
 
 export type PokemonProps = {
   id: number;
   name: string;
   types: PokemonTypeProps[];
-  image: string;
+  // image: string;
+  // height: number;
+  // weight: number;
+  stats: PokemonStatsProps[];
 };
