@@ -7,6 +7,7 @@ Pokédex developed in React + Typescript
 The app currently contains the following features
 
 - View basic details of each Pokémon
+- View stat information for each Pokémon
 - Search Pokémon by its Name
 - Dark mode toggle
 - Responsive design

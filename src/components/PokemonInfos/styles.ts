@@ -95,7 +95,7 @@ export const PokemonInfosContent = styled.div`
   }
 `;
 
-export const PorgessBar = styled.span<{ value: number; mainType: string }>`
+export const StatsBar = styled.span<{ value: number; mainType: string }>`
   border-radius: 50%;
   overflow: hidden;
   width: 100%;

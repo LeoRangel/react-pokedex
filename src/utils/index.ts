@@ -15,12 +15,23 @@ export function formatTextToCapitalize(value: string) {
 export function formatTextToCapitalizeWithTrace(value: string) {
   const text = value
     .toLocaleLowerCase()
+    .replace('special', 'sp.')
     .split('-')
     .map((l) => l.charAt(0).toUpperCase() + l.substring(1))
     .join(' ');
 
   return text;
 }
+
+export const highestStats: { [key: string]: number } = {
+  hp: 100 / 255,
+  attack: 100 / 181,
+  defense: 100 / 230,
+  specialattack: 100 / 173, // 173 ou 180
+  specialdefense: 100 / 230,
+  speed: 100 / 200,
+  // total: 100 / 720,
+};
 
 export const pokemonColors: { [key: string]: string } = {
   normal: '#A8A77A',

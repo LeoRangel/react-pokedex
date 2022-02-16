@@ -1,7 +1,7 @@
 import { PokemonBadgeType } from '..';
 import { PokemonProps, PokemonStatsProps, PokemonTypeProps } from '../../types';
 import pokeball from '../../assets/img/pokeball.png';
-import { addZerosToId, formatTextToCapitalize, formatTextToCapitalizeWithTrace } from '../../utils';
+import { addZerosToId, formatTextToCapitalize, formatTextToCapitalizeWithTrace, highestStats } from '../../utils';
 import * as S from './styles';
 
 type PokemonInfosProps = {
@@ -43,11 +43,14 @@ export function PokemonInfos({ modalData }: PokemonInfosProps) {
                   <td>{item.base_stat}</td>
 
                   <td>
-                    <S.PorgessBar value={Math.round(item.base_stat / 1.5)} mainType={modalData.types[0].type.name}>
+                    <S.StatsBar
+                      value={Math.round(item.base_stat * highestStats[item.stat.name.replace('-', '')])}
+                      mainType={modalData.types[0].type.name}
+                    >
                       <span className="bar">
                         <span className="progress" />
                       </span>
-                    </S.PorgessBar>
+                    </S.StatsBar>
                   </td>
                 </tr>
               ))}
