@@ -21,7 +21,7 @@ export function PokemonModal({ setIsModalVisible, setModalData, children }: Poke
 
   return (
     <S.PokemonModal id="modal" onClick={handleOutsideClick}>
-      <S.ModalContainer>
+      <S.ModalContainer className="fadeIn">
         <S.ModalCloseBtn type="button" onClick={closeModal}>
           Close
         </S.ModalCloseBtn>

@@ -1,7 +1,13 @@
 import { PokemonBadgeType } from '..';
 import { PokemonProps, PokemonStatsProps, PokemonTypeProps } from '../../types';
 import pokeball from '../../assets/img/pokeball.png';
-import { addZerosToId, formatTextToCapitalize, formatTextToCapitalizeWithTrace, highestStats } from '../../utils';
+import {
+  addZerosToId,
+  formatTextToCapitalize,
+  formatTextToCapitalizeWithTrace,
+  getHighestStats,
+  getPokemonBG,
+} from '../../utils';
 import * as S from './styles';
 
 type PokemonInfosProps = {
@@ -11,8 +17,8 @@ type PokemonInfosProps = {
 export function PokemonInfos({ modalData }: PokemonInfosProps) {
   return (
     <div>
-      {modalData !== undefined && (
-        <S.PokemonInfos mainType={modalData.types[0].type.name}>
+      {modalData && (
+        <S.PokemonInfos pokemonBG={getPokemonBG(modalData.types[0].type.name, modalData.types[1]?.type.name)}>
           <S.PokemonInfosHeader>
             <small>
               <code>#{addZerosToId(modalData.id)}</code>
@@ -33,28 +39,24 @@ export function PokemonInfos({ modalData }: PokemonInfosProps) {
           </S.PokemonInfosHeader>
 
           <S.PokemonInfosContent>
-            <table>
-              {modalData.stats.map((item: PokemonStatsProps) => (
-                <tr key={`${item.stat.name}${item.base_stat}`}>
-                  <td>
-                    <h3>{formatTextToCapitalizeWithTrace(item.stat.name)}:</h3>
-                  </td>
+            {modalData.stats.map((item: PokemonStatsProps) => (
+              <div key={`${item.stat.name}${item.base_stat}`}>
+                <p>
+                  <strong>{formatTextToCapitalizeWithTrace(item.stat.name)}: </strong>
+                  {item.base_stat}
+                  <br />
+                </p>
 
-                  <td>{item.base_stat}</td>
-
-                  <td>
-                    <S.StatsBar
-                      value={Math.round(item.base_stat * highestStats[item.stat.name.replace('-', '')])}
-                      mainType={modalData.types[0].type.name}
-                    >
-                      <span className="bar">
-                        <span className="progress" />
-                      </span>
-                    </S.StatsBar>
-                  </td>
-                </tr>
-              ))}
-            </table>
+                <S.StatsBar
+                  value={getHighestStats(item.base_stat, item.stat.name)}
+                  pokemonBG={getPokemonBG(modalData.types[0].type.name, modalData.types[1]?.type.name)}
+                >
+                  <span className="bar">
+                    <span className="progress fadeInRight" />
+                  </span>
+                </S.StatsBar>
+              </div>
+            ))}
           </S.PokemonInfosContent>
         </S.PokemonInfos>
       )}

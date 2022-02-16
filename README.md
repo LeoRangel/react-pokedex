@@ -8,6 +8,7 @@ The app currently contains the following features
 
 - View basic details of each Pokémon
 - View stat information for each Pokémon
+- Background color of pokemon cards according to their types
 - Search Pokémon by its Name
 - Dark mode toggle
 - Responsive design
@@ -21,6 +22,7 @@ The application was developed using the following tools and technologies:
 - TypeScript
 - HTML
 - CSS
+- Styled Components
 
 ## :arrow_forward: Install and run the project
 

@@ -67,36 +67,39 @@ export default createGlobalStyle`
     transition: var(--bg-transition);
   }
 
-  .animated {
-    animation-duration: .5s;
-    animation-fill-mode: both;
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
+  .fadeIn { animation: fadeIn .2s both; }
 
   @keyframes fadeInLeft {
     0% {
-        opacity: 0;
-        transform: translateX(20px);
+      opacity: 0;
+      transform: translateX(100%);
     }
     100% {
-        opacity: 1;
-        transform: translateX(0);
+      opacity: 1;
+      transform: translateX(0);
     }
   }
+  .fadeInLeft { animation: fadeInLeft .5s both; }
 
-  .fadeInLeft {
-    animation-name: fadeInLeft;
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
+  .fadeInRight { animation: fadeInRight 1.5s both; }
 
   @keyframes spinner {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
   }
-
-  .spinner {
-    animation: spinner 5s linear infinite;
-  }
+  .spinner { animation: spinner 5s linear infinite; }
 `;

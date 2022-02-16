@@ -1,15 +1,9 @@
 import styled from 'styled-components';
-import { pokemonColors } from '../../utils';
 
-export const PokemonInfos = styled.div<{ mainType: string }>`
+export const PokemonInfos = styled.div<{ pokemonBG: string }>`
   display: flex;
   flex-direction: column;
-  ${({ mainType }) => {
-    if (mainType && pokemonColors[mainType]) {
-      return `background-color: ${pokemonColors[mainType]}`;
-    }
-    return 'background-color: var(--gray-3)';
-  }};
+  ${({ pokemonBG }) => pokemonBG || ''};
 `;
 
 export const PokemonInfosHeader = styled.header`
@@ -48,10 +42,21 @@ export const PokemonInfosHeader = styled.header`
     &.pokemon-image {
       bottom: -20%;
       height: 80%;
-      transform: translateX(50%);
       // width: auto;
       // right: var(--spacing-4);
       z-index: 99;
+
+      @keyframes pokemonImage {
+        0% {
+          opacity: 0;
+          transform: translateX(50%) scale(0);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(50%) scale(1);
+        }
+      }
+      animation: pokemonImage 0.2s both;
     }
   }
 
@@ -78,27 +83,28 @@ export const PokemonInfosHeader = styled.header`
 `;
 
 export const PokemonInfosContent = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-2) var(--spacing-5);
   padding: var(--spacing-5);
   padding-top: var(--spacing-6);
   background: var(--gray-5);
   border-radius: var(--border-radius-3) var(--border-radius-3) 0 0;
   z-index: 98;
 
-  table {
-    td {
-      &:nth-child(3) {
-        width: 50%;
-      }
-    }
+  p {
+    margin-bottom: var(--spacing-2);
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
-export const StatsBar = styled.span<{ value: number; mainType: string }>`
+export const StatsBar = styled.span<{ value: number; pokemonBG: string }>`
+  width: 100%;
   border-radius: 50%;
   overflow: hidden;
-  width: 100%;
 
   span {
     display: block;
@@ -112,7 +118,7 @@ export const StatsBar = styled.span<{ value: number; mainType: string }>`
 
     &.progress {
       color: #fff;
-      ${({ mainType }) => (mainType ? `background: ${pokemonColors[mainType]}` : 'background: var(--gray-3)')};
+      ${({ pokemonBG }) => pokemonBG || ''};
       ${({ value }) => (value ? `width: ${value}%` : 'width: 0')};
     }
   }

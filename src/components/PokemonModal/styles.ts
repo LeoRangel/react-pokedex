@@ -10,6 +10,7 @@ export const PokemonModal = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   display: grid;
   place-items: center;
+  padding: var(--spacing-5);
 `;
 
 export const ModalContainer = styled.div`
@@ -25,8 +26,9 @@ export const ModalContainer = styled.div`
 
 export const ModalCloseBtn = styled.button`
   cursor: pointer;
-  height: 40px;
-  width: 70px;
+  // height: 40px;
+  // width: 70px;
+  padding: var(--spacing-2) var(--spacing-3);
   border: 1px solid white;
   color: white;
   border-radius: 20px;

@@ -1,17 +1,11 @@
 import styled from 'styled-components';
-import { pokemonColors } from '../../utils';
 
-export const PokemonCard = styled.div<{ mainType: string }>`
+export const PokemonCard = styled.div<{ pokemonBG: string }>`
   width: 100%;
   max-width: 100%;
   height: 180px;
   padding: var(--spacing-4);
-  ${({ mainType }) => {
-    if (mainType && pokemonColors[mainType]) {
-      return `background-color: ${pokemonColors[mainType]}`;
-    }
-    return 'background-color: var(--gray-3)';
-  }};
+  ${({ pokemonBG }) => pokemonBG || ''};
   border-radius: var(--border-radius-1);
   overflow: hidden;
   display: flex;
