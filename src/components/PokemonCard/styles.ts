@@ -14,6 +14,8 @@ export const PokemonCard = styled.div<{ pokemonBG: string }>`
   align-items: center;
   position: relative;
   color: white;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
 
   small {
     color: rgba(0, 0, 0, 0.4);

@@ -1,4 +1,5 @@
 import { Container, ToggleThemeButton } from '..';
+import { IconSearch } from '../../assets/icons';
 import { Theme } from '../../types';
 import * as S from './styles';
 
@@ -20,22 +21,25 @@ export function PageHeader({ theme, toggleTheme, search, handleSearch }: PageHea
           <ToggleThemeButton theme={theme} onClick={toggleTheme} />
         </Container>
       </S.Navbar>
-      <Container>
-        <S.PokemonSearch>
+      <S.PokemonSearch>
+        <Container>
           <label htmlFor="pokemonSearch">
             <h2>What Pokémon are you looking for?</h2>
             <br />
-            <input
-              type="search"
-              name="pokemonSearch"
-              id="pokemonSearch"
-              onChange={handleSearch}
-              value={search}
-              placeholder="Enter pokemon name"
-            />
+            <S.SearchInput>
+              <input
+                type="search"
+                name="pokemonSearch"
+                id="pokemonSearch"
+                onChange={handleSearch}
+                value={search}
+                placeholder="Enter pokemon name. Ex.: pikachu"
+              />
+              <span>{IconSearch()}</span>
+            </S.SearchInput>
           </label>
-        </S.PokemonSearch>
-      </Container>
+        </Container>
+      </S.PokemonSearch>
     </S.PageHeader>
   );
 }

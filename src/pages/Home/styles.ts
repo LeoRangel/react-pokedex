@@ -2,4 +2,6 @@ import styled from 'styled-components';
 
 export const MainContent = styled.main`
   padding-bottom: var(--spacing-7);
+  position: relative;
+  top: -90px;
 `;
